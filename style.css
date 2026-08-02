@@ -66,3 +66,55 @@ padding:20px;
 background:#000;
 color:#FFD700;
 }
+#branches{
+    padding:50px 20px;
+    background:#f8f8f8;
+    text-align:center;
+}
+
+#branches h2{
+    color:#c9a227;
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.branch-text{
+    color:#555;
+    margin-bottom:30px;
+    font-size:18px;
+}
+
+.branch-card{
+    background:#fff;
+    border:2px solid #d4af37;
+    border-radius:18px;
+    padding:25px;
+    margin:25px auto;
+    max-width:700px;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+.branch-card h3{
+    color:#b8860b;
+    margin-bottom:15px;
+}
+
+.branch-card p{
+    line-height:2;
+    color:#333;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:15px;
+    background:#d4af37;
+    color:#fff;
+    padding:12px 25px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.btn:hover{
+    background:#b8860b;
+}
