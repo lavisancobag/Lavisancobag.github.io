@@ -1,309 +1,644 @@
+/* =========================
+   Lavisan Bag
+   طراحی جدید
+========================= */
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
-    font-family:Tahoma,sans-serif;
-    background:#111;
-    color:#fff;
-    direction:rtl;
-    line-height:1.8;
+
+font-family:'Vazirmatn',sans-serif;
+
+background:#090909;
+
+color:white;
+
+line-height:1.9;
+
+overflow-x:hidden;
+
 }
 
-a{
-    text-decoration:none;
+/* ===== اسکرول ===== */
+
+::-webkit-scrollbar{
+
+width:8px;
+
 }
+
+::-webkit-scrollbar-thumb{
+
+background:#c9a227;
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#111;
+
+}
+
+/* ===== Hero ===== */
 
 .hero{
-    position:relative;
-    width:100%;
-    height:500px;
-    overflow:hidden;
+
+position:relative;
+
+width:100%;
+
+height:100vh;
+
+overflow:hidden;
+
 }
 
-.hero-img{
-    width:100%;
-    height:500px;
-    object-fit:cover;
+.slider{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
 }
 
-.hero-overlay{
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,.55);
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
+.slider img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+transition:1.2s;
+
+}
+
+.overlay{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+background:rgba(0,0,0,.60);
+
+backdrop-filter:blur(2px);
+
+z-index:1;
+
+}
+
+.hero-content{
+
+position:absolute;
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%);
+
+text-align:center;
+
+z-index:10;
+
+width:90%;
+
 }
 
 .logo{
-    width:140px;
-    height:140px;
-    border-radius:50%;
-    border:4px solid #d4af37;
-    margin-bottom:20px;
+
+width:150px;
+
+height:150px;
+
+border-radius:50%;
+
+border:4px solid #d4af37;
+
+box-shadow:0 0 30px rgba(212,175,55,.5);
+
+margin-bottom:25px;
+
 }
 
-h1{
-    color:#d4af37;
-    font-size:42px;
-}
+.hero h1{
 
-h2{
-    color:#d4af37;
-    text-align:center;
-    margin:40px 0 20px;
-}
+font-size:60px;
 
-h3{
-    color:#fff;
+color:#d4af37;
+
+font-weight:800;
+
+letter-spacing:2px;
+
+margin-bottom:15px;
+
 }
 
 .slogan{
-    font-size:22px;
-    color:#fff;
-    margin:15px 0 25px;
+
+font-size:24px;
+
+margin-bottom:40px;
+
+color:white;
+
 }
 
-.hero-buttons{
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-    justify-content:center;
+/* ===== دکمه طلایی ===== */
+
+.gold-btn{
+
+display:inline-block;
+
+padding:16px 45px;
+
+background:#d4af37;
+
+color:#111;
+
+font-weight:bold;
+
+font-size:18px;
+
+border-radius:50px;
+
+transition:.35s;
+
+box-shadow:0 0 25px rgba(212,175,55,.35);
+
 }
 
-.hero-buttons a{
-    background:#d4af37;
-    color:#111;
-    padding:12px 22px;
-    border-radius:30px;
-    font-weight:bold;
-    transition:.3s;
-}
+.gold-btn:hover{
 
-.hero-buttons a:hover{
-    background:#fff;
-}
+background:white;
 
-.navbar{
-    background:#000;
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    padding:15px;
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
+transform:translateY(-5px);
 
-.navbar a{
-    color:#fff;
-    margin:10px 15px;
-    font-weight:bold;
-}
+box-shadow:0 0 35px rgba(255,255,255,.35);
 
-.navbar a:hover{
-    color:#d4af37;
 }
+/* =========================
+   Section Title
+========================= */
 
 section{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-    padding:50px 0;
+
+padding:90px 8%;
+
 }
 
-p{
-    text-align:center;
-    font-size:18px;
+.section-title{
+
+text-align:center;
+
+margin-bottom:55px;
+
 }
-.cards,
-.service-box,
+
+.section-title h2{
+
+font-size:40px;
+
+color:#d4af37;
+
+margin-bottom:12px;
+
+}
+
+.section-title span{
+
+display:block;
+
+width:90px;
+
+height:4px;
+
+background:#d4af37;
+
+margin:auto;
+
+border-radius:30px;
+
+}
+
+
+/* =========================
+   About
+========================= */
+
+#about p{
+
+max-width:900px;
+
+margin:auto;
+
+text-align:center;
+
+font-size:19px;
+
+color:#ddd;
+
+line-height:2.2;
+
+}
+
+
+/* =========================
+   Cards
+========================= */
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+gap:30px;
+
+margin-top:50px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.06);
+
+border:1px solid rgba(212,175,55,.25);
+
+backdrop-filter:blur(12px);
+
+border-radius:20px;
+
+padding:35px 25px;
+
+text-align:center;
+
+transition:.4s;
+
+box-shadow:0 10px 30px rgba(0,0,0,.35);
+
+}
+
+.card:hover{
+
+transform:translateY(-12px);
+
+border-color:#d4af37;
+
+box-shadow:0 15px 35px rgba(212,175,55,.35);
+
+}
+
+.card h3{
+
+color:#d4af37;
+
+margin:18px 0;
+
+font-size:22px;
+
+}
+
+.card p{
+
+color:#ddd;
+
+font-size:16px;
+
+}
+
+
+/* =========================
+   Services
+========================= */
+
+.service-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+gap:30px;
+
+}
+
+.glass-card{
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+padding:35px;
+
+border-radius:20px;
+
+text-align:center;
+
+transition:.35s;
+
+}
+
+.glass-card:hover{
+
+transform:translateY(-10px);
+
+border:1px solid #d4af37;
+
+}
+
+.icon{
+
+font-size:48px;
+
+margin-bottom:20px;
+
+}
+
+.glass-card h3{
+
+color:#d4af37;
+
+margin-bottom:15px;
+
+}
+
+.glass-card p{
+
+color:#ccc;
+
+}
+
+
+/* =========================
+   Brands
+========================= */
+
+.brands-box{
+
+display:flex;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+gap:15px;
+
+margin-top:40px;
+
+}
+
+.brands-box p{
+
+padding:12px 22px;
+
+border-radius:40px;
+
+background:#1b1b1b;
+
+border:1px solid #d4af37;
+
+color:#fff;
+
+transition:.3s;
+
+font-weight:600;
+
+}
+
+.brands-box p:hover{
+
+background:#d4af37;
+
+color:#111;
+
+}
+/* =========================
+   Gallery
+========================= */
+
 .gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
 
-.card,
-.service,
-.branch-card,
-.address-card{
+display:grid;
 
-    background:#1b1b1b;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 
-    border:2px solid #d4af37;
+gap:25px;
 
-    border-radius:15px;
-
-    padding:25px;
-
-    text-align:center;
-
-    transition:.3s;
-
-}
-
-.card:hover,
-.service:hover,
-.branch-card:hover,
-.address-card:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:0 0 20px rgba(212,175,55,.4);
+margin-top:40px;
 
 }
 
 .gallery img{
 
-    width:100%;
+width:100%;
 
-    height:260px;
+height:280px;
 
-    object-fit:cover;
+object-fit:cover;
 
-    border-radius:15px;
+border-radius:20px;
 
-    border:3px solid #d4af37;
+border:2px solid rgba(212,175,55,.35);
 
-    transition:.3s;
+transition:.4s;
+
+cursor:pointer;
+
+box-shadow:0 10px 25px rgba(0,0,0,.35);
 
 }
 
 .gallery img:hover{
 
-    transform:scale(1.05);
+transform:scale(1.05);
+
+border-color:#d4af37;
+
+box-shadow:0 0 30px rgba(212,175,55,.45);
+
+}
+
+
+/* =========================
+   Branches
+========================= */
+
+.branch-container{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+gap:30px;
+
+margin-top:40px;
 
 }
 
 .branch-card{
 
-    margin-bottom:30px;
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(212,175,55,.25);
+
+border-radius:20px;
+
+padding:35px;
+
+text-align:center;
+
+transition:.35s;
 
 }
 
-.btn{
+.branch-card:hover{
 
-    display:inline-block;
+transform:translateY(-10px);
 
-    margin-top:20px;
+border-color:#d4af37;
 
-    padding:12px 25px;
-
-    background:#d4af37;
-
-    color:#111;
-
-    border-radius:30px;
-
-    font-weight:bold;
+box-shadow:0 0 30px rgba(212,175,55,.3);
 
 }
 
-.btn:hover{
+.branch-card h3{
 
-    background:white;
+color:#d4af37;
 
-}
+margin-bottom:20px;
 
-.contact-box{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    justify-content:center;
-
-    gap:15px;
+font-size:24px;
 
 }
 
-.contact-box a{
+.branch-card p{
 
-    background:#d4af37;
+margin-bottom:12px;
 
-    color:#111;
-
-    padding:15px 25px;
-
-    border-radius:30px;
-
-    font-weight:bold;
+color:#ddd;
 
 }
 
-.contact-box a:hover{
 
-    background:white;
+/* =========================
+   Contact
+========================= */
+
+.contact-buttons{
+
+display:flex;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+gap:20px;
+
+margin-top:35px;
 
 }
 
-.qr{
+.contact-buttons a{
 
-    width:220px;
+padding:15px 30px;
 
-    display:block;
+border-radius:50px;
 
-    margin:auto;
+background:#d4af37;
+
+color:#111;
+
+font-weight:bold;
+
+transition:.3s;
 
 }
+
+.contact-buttons a:hover{
+
+background:white;
+
+transform:translateY(-5px);
+
+}
+
+
+/* =========================
+   Footer
+========================= */
 
 footer{
 
-    background:#000;
+background:#050505;
 
-    text-align:center;
+padding:70px 20px;
 
-    padding:40px 20px;
+text-align:center;
 
-    margin-top:50px;
+margin-top:80px;
+
+border-top:1px solid rgba(212,175,55,.2);
+
+}
+
+.footer-logo{
+
+width:90px;
+
+height:90px;
+
+border-radius:50%;
+
+border:3px solid #d4af37;
+
+margin-bottom:20px;
 
 }
 
 footer h3{
 
-    color:#d4af37;
+font-size:28px;
 
-    margin-bottom:10px;
+color:#d4af37;
+
+margin-bottom:10px;
 
 }
 
 footer p{
 
-    color:#ddd;
+color:#aaa;
+
+margin:8px 0;
 
 }
+
+
+/* =========================
+   Responsive
+========================= */
+
 @media(max-width:768px){
 
-.hero{
+.hero h1{
 
-height:350px;
-
-}
-
-.hero-img{
-
-height:350px;
-
-}
-
-.logo{
-
-width:100px;
-
-height:100px;
-
-}
-
-h1{
-
-font-size:32px;
+font-size:42px;
 
 }
 
@@ -313,29 +648,39 @@ font-size:18px;
 
 }
 
-.hero-buttons{
+.logo{
 
-flex-direction:column;
+width:110px;
 
-}
-
-.hero-buttons a{
-
-width:220px;
-
-margin:auto;
+height:110px;
 
 }
 
-.navbar{
+.gold-btn{
 
-flex-direction:column;
+padding:14px 28px;
+
+font-size:16px;
+
+}
+
+.section-title h2{
+
+font-size:30px;
 
 }
 
 .gallery img{
 
-height:180px;
+height:220px;
+
+}
+
+.cards,
+.service-grid,
+.branch-container{
+
+grid-template-columns:1fr;
 
 }
 
