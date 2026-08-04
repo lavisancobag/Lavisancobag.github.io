@@ -1,108 +1,141 @@
 // =======================
-// اسلایدر خودکار لاویسان
+// Lavisan Bag
+// Script.js
 // =======================
 
+// ---------- اسلایدر ----------
+
 const images = [
-    "images/IMG_4868.jpeg",
-    "images/IMG_4869.jpeg",
-    "images/IMG_4870.jpeg",
-    "images/IMG_4873.jpeg",
-    "images/IMG_4923.jpeg",
-    "images/Bag1.jpg",
-    "images/Bag2.jpg"
+"images/IMG_4868.jpeg",
+"images/IMG_4869.jpeg",
+"images/IMG_4870.jpeg",
+"images/IMG_4873.jpeg",
+"images/IMG_4923.jpeg",
+"images/Bag1.jpg",
+"images/Bag2.jpg"
 ];
 
 let current = 0;
 
-const slider = document.getElementById("slide");
+const slide = document.getElementById("slide");
 
-function changeSlide(){
+function nextSlide(){
 
-    if(!slider) return;
+if(!slide) return;
 
-    current++;
+slide.style.opacity="0";
 
-    if(current >= images.length){
-        current = 0;
-    }
+setTimeout(()=>{
 
-    slider.style.opacity = 0;
+current++;
 
-    setTimeout(()=>{
+if(current>=images.length){
 
-        slider.src = images[current];
-
-        slider.style.opacity = 1;
-
-    },400);
+current=0;
 
 }
 
-setInterval(changeSlide,4000);
+slide.src=images[current];
 
+slide.style.opacity="1";
 
-// =======================
-// اسکرول نرم منو
-// =======================
-
-document.querySelectorAll('a[href^="#"]').forEach(link=>{
-
-    link.addEventListener("click",function(e){
-
-        e.preventDefault();
-
-        const target=document.querySelector(this.getAttribute("href"));
-
-        if(target){
-
-            target.scrollIntoView({
-
-                behavior:"smooth"
-
-            });
-
-        }
-
-    });
-
-});
-
-
-// =======================
-// نمایش تدریجی بخش‌ها
-// =======================
-
-const sections=document.querySelectorAll("section");
-
-const observer=new IntersectionObserver(entries=>{
-
-    entries.forEach(entry=>{
-
-        if(entry.isIntersecting){
-
-            entry.target.style.opacity="1";
-
-            entry.target.style.transform="translateY(0)";
-
-        }
-
-    });
-
-});
-
-sections.forEach(section=>{
-
-    section.style.opacity="0";
-
-    section.style.transform="translateY(40px)";
-
-    section.style.transition="all .8s";
-
-    observer.observe(section);
-
-});
-.hero-img{
-
-transition:1s;
+},500);
 
 }
+
+setInterval(nextSlide,4000);
+
+
+// ---------- انیمیشن هنگام اسکرول ----------
+
+const observer = new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+
+entry.target.style.transform="translateY(0)";
+
+}
+
+});
+
+});
+
+document.querySelectorAll("section").forEach(section=>{
+
+section.style.opacity="0";
+
+section.style.transform="translateY(70px)";
+
+section.style.transition="all .8s ease";
+
+observer.observe(section);
+
+});
+
+
+// ---------- دکمه بازگشت بالا ----------
+
+const topBtn=document.createElement("button");
+
+topBtn.innerHTML="⬆";
+
+topBtn.className="topBtn";
+
+document.body.appendChild(topBtn);
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>400){
+
+topBtn.style.display="block";
+
+}else{
+
+topBtn.style.display="none";
+
+}
+
+});
+
+topBtn.onclick=()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+};
+
+
+// ---------- زوم تصاویر ----------
+
+document.querySelectorAll(".gallery img").forEach(img=>{
+
+img.addEventListener("click",()=>{
+
+const overlay=document.createElement("div");
+
+overlay.className="lightbox";
+
+overlay.innerHTML=`
+<img src="${img.src}">
+`;
+
+document.body.appendChild(overlay);
+
+overlay.onclick=()=>{
+
+overlay.remove();
+
+};
+
+});
+
+});
