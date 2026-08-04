@@ -101,3 +101,8 @@ sections.forEach(section=>{
     observer.observe(section);
 
 });
+.hero-img{
+
+transition:1s;
+
+}
